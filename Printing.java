@@ -27,7 +27,7 @@ public class Printing {
     static double Total;
 
     static double ball_Scale(double r) {
-        return 1.0;
+        return (4.0 / 3.0) * PI * r * r * r;
     }
 
     static double pyr_Scale(double l, double h) {
