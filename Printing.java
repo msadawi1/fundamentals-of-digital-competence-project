@@ -39,7 +39,7 @@ public class Printing {
     }
 
     static double cyl_Scale(double r, double h) {
-        return 1.0;
+        return (r * r * PI) * h;
     }
 
     public static void main(String[] args) {
