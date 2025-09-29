@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 /**
  * This program calculates the volume of various 3D shapes
@@ -25,7 +26,82 @@ public class Printing {
     static double height;
     static double Total;
 
-    public static void main(String[] args) {
+    static double ball_Scale(double r) {
+        return 1.0;
+    }
 
+    static double pyr_Scale(double l, double h) {
+        return  1.0;
+    }
+
+    static double cone_Scale(double r, double h) {
+        return 1.0;
+    }
+
+    static double cyl_Scale(double r, double h) {
+        return 1.0;
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        while (start) {
+            Total = 0; // Reset Total at the start of each loop
+            System.out.println("""
+==============================
+   Welcome to Resin Calculator
+==============================
+Please select a 3D model to calculate the required resin:
+""");
+            System.out.println("""
+1 - Ball (Sphere)
+2 - Pyramid (Four-Faceted)
+3 - Cone
+4 - Cylinder
+5 - Exit Program
+""");
+            System.out.print("Enter your choice (1-5): ");
+            int choise = input.nextInt();
+            switch (choise) {
+                case 1 -> {
+                    System.out.print("Enter the radius of the Ball (in cm): ");
+                    radius = input.nextDouble();
+                    Total = ball_Scale(radius);
+                    System.out.println("You selected: Ball (Sphere)");
+                }
+                case 2 -> {
+                    System.out.print("Enter the base length of the Pyramid (in cm): ");
+                    length = input.nextDouble();
+                    System.out.print("Enter the height of the Pyramid (in cm): ");
+                    height = input.nextDouble();
+                    Total = pyr_Scale(length, height);
+                    System.out.println("You selected: Pyramid (Four-Faceted)");
+                }
+                case 3 -> {
+                    System.out.print("Enter the radius of the Cone (in cm): ");
+                    radius = input.nextDouble();
+                    System.out.print("Enter the height of the Cone (in cm): ");
+                    height = input.nextDouble();
+                    Total = cone_Scale(radius, height);
+                    System.out.println("You selected: Cone");
+                }
+                case 4 -> {
+                    System.out.print("Enter the radius of the Cylinder (in cm): ");
+                    radius = input.nextDouble();
+                    System.out.print("Enter the height of the Cylinder (in cm): ");
+                    height = input.nextDouble();
+                    Total = cyl_Scale(radius, height);
+                    System.out.println("You selected: Cylinder");
+                }
+                case 5 -> {
+                    start = false;
+                    System.out.println("\nThank you for using the Resin Calculator. Goodbye!");
+                }
+                default ->
+                    System.out.println("Invalid option. Please enter a number between 1 and 5.\n");
+            }
+            if (choise >= 1 && choise <= 4) {
+                System.out.printf("\nEstimated resin required: %.2f cm^3\n\n", Total);
+            }
+        }
     }
 }
