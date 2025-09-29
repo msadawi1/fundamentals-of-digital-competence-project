@@ -31,11 +31,11 @@ public class Printing {
     }
 
     static double pyr_Scale(double l, double h) {
-        return  1.0;
+        return ((l * l) * h) / 3;
     }
 
     static double cone_Scale(double r, double h) {
-        return 1.0;
+        return ((r * r * PI) * h) / 3;
     }
 
     static double cyl_Scale(double r, double h) {
