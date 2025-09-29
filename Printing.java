@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+// Finished logic and testing. Ready for use
+
 /**
  * This program calculates the volume of various 3D shapes
  * (sphere, pyramid, cone, and cylinder) to determine the
